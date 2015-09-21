@@ -1,11 +1,21 @@
 # jumbler
 
+## A note on submission
+We will be working with and submitting our code to the codeguild2015/jumbler
+github repo. Make sure that when you work on the repo, you make a unique
+branch. After you and your partner are done working on your code, merge your
+branch to the main branch. If there are no merge commits (there shouldn't be
+if you named your program correctly) then push to the remote repo. Your file
+should be in the main repo for me to clone. Also, make sure that you are
+commiting regularly (after each atomic edit to your code) and using descriptive
+commit messages.
+
 ## Purpose
 A common programming task is to scan a file, picking out elements that meet some criterion. This assignment introduces the file-scan idiom in Python, along with some basic manipulation of strings (text).
 
 ## Pair Assignment
-You are encouraged to use pair programming to complete this assignment. Work together with one classmate.
-Before writing code at the computer, you should work together and independently on the design. Each of you should be able to clearly explain how the program or a part of the program will work. When you are convinced that you both understand how the code will work, then and only then are you ready to write the code.
+For this assignment we will be pair programming. Work together with one classmate.
+Before writing code at the computer, you should work together and independently on the design. Each of you should be able to clearly explain how the program or a part of the program will work. When you are convinced that you both understand how the code will work, then and only then are you ready to write the code. After you have written code, submit your file as jumble_name1_name2.py to the main repo. Also clearly indicate the authors in the scripts header.
 
 ## Word Jumbles (Anagrams)
 Anagrams are words whose letters have been scrambled. In newspapers and online, “word jumble” puzzles are based on anagrams, and can be solved using the program you will write. (For example, you should be able to solve the anagrams at the daily jumble.)
@@ -35,7 +45,7 @@ alpha
 1 matches in 5 lines
 ```
 ## Notes and hints on the jumble solver
-Please name your program file jumbler_[name].py. This will prevent merge collisions in our repo.
+Please name your program file jumbler_[names].py. This will prevent merge collisions in our repo.
 I've provided some starter code in jumbler.py. Note there are three parts you need to make changes to, all marked with the text FIXME.
 
 ## How to check
