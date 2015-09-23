@@ -25,6 +25,7 @@ def check_for_from(lst):
     else:
         return False
 
+
 def count_occurances(lst):
     """ Gets list of names
     Return counts per name
@@ -41,12 +42,14 @@ def count_occurances(lst):
             compressed.append(elem)
     return compressed
 
+
 def sort_list(lst):
     """ Get a list tuples
     Return the list reverse order of names & number
     """
     lst.sort(reverse = True)
     return lst 
+
 
 def main():
     filename = input("input filename ")
@@ -59,6 +62,7 @@ def main():
     lst_srtd = sort_list(count_list)
     for idx, elem in enumerate(lst_srtd):
         print(lst_srtd[idx][0], lst_srtd[idx][1])
+
 
 if __name__ == '__main__':
     assert split_line('Are you working?') == ['Are', 'you', 'working?']

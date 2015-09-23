@@ -10,6 +10,7 @@ import sys
 CONSONANTS = "bcdfghjklmnpqrstvwyz" 
 VOWELS = "aeiou"  
 
+
 def split_to_double_digits(num):
     """Takes a number and splits into a list of double (or less) digits
     Returns a list of the double digits"""
@@ -20,12 +21,14 @@ def split_to_double_digits(num):
     num_list.reverse()
     return num_list
 
+
 def convert_to_letters(num):
     """Takes in a num of two digits
     Convert that to letters
     """
     letter_list = [CONSONANTS[num//5], VOWELS[num%5]]
     return "".join(letter_list)
+
 
 def split_to_pairs(str1):
     """Take in a string of indeterminate length and split it into a list of
@@ -35,12 +38,14 @@ def split_to_pairs(str1):
     lst = list(str1)
     return [[lst[x], lst[x+1]] for x in range(0, len(lst)-1, 2)]
 
+
 def convert_to_numbers(str_list):
     """Take in a list of 2 Alphabetic chars and 
     convert them to numbers
     Returns two digits as string
     """
     return str(CONSONANTS.index(str_list[0])*5 + VOWELS.index(str_list[1]))
+
 
 def foo(pincode):
     """Create a list of doubledigits or alpha chars from pincode
@@ -57,6 +62,7 @@ def foo(pincode):
         return None
     answer = "".join(ans_lst)
     return answer
+
 
 if __name__ == '__main__':
     assert split_to_double_digits(556655) == [55, 66, 55]

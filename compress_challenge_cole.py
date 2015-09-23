@@ -2,7 +2,6 @@
 Takes a string of characters and compresses them if possible
 """
 
-
 import sys
 
 
@@ -21,12 +20,12 @@ def compress_string(str1):
             new_string += i
     return new_string
 
+
 def break_string(str1):
     """Takes string
     returns list of strings, broken by like
     """
-    i = 1
-    j = 0
+    i, j = 1, 0
     letter_strs = []
     letter_strs.append(str1[0])
     while i < len(str1):
@@ -45,9 +44,12 @@ def full_compress(str1):
     """
     lst = break_string(str1)
     answer_lst = [compress_string(i) for i in lst]
-    print("".join(answer_lst))
+    answer = "".join(answer_lst)
+    print(answer)
+    return(answer)
 
 if __name__ == '__main__':
     assert compress_string('AAA') == 'A3'
     assert break_string('AAABAAA') == ['AAA', 'B', 'AAA']
+    assert full_compress('AABBAA') == 'AABBAA'
     full_compress(sys.argv[1])
