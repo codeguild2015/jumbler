@@ -72,7 +72,6 @@ def count_occurances(time_lst):
 
 
 def main():
-    """Import file, get time of day from 'From' lines, sort into list"""
     filename = input('Enter file name: ')
     file = open(filename, 'r')
     time_lst = []
