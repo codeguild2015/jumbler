@@ -1,13 +1,19 @@
 # Title: time_of_day.py
 # Authors: Mercy and Cole 
+#
 # Reads a file and pulls out time of commits
 # Counts them and returns number of commits
 # per hour and returns the hour and count for each
 
 
 def split_line(line):
-    """ Split a line (comes in a string)
-    Return a list of words, split on the spaces
+    """ Split a line into list of words
+
+    Args:
+        line - a string
+
+    Return:
+        a list of words
      """
     try:
         words = line.split(' ')
@@ -18,7 +24,12 @@ def split_line(line):
 
 def check_for_from(lst):
     """ Isolate lists which start with From (but not From:)
-    Return True or False
+
+    Args:
+        lst - a list of strings
+
+    Return:
+        a boolean
     """
     if lst[0] == "From" and len(lst) == 7:
         return True
@@ -27,14 +38,27 @@ def check_for_from(lst):
 
 
 def hour_num(split_hour):
-    """Splitting time to pull just the hour returns a string"""
+    """Splits time to pull just the hour returns a string
+
+    Args:
+        split_hour - a string
+
+    Return:
+        a string
+    """
     nums = split_hour[:2]
     return nums
 
 
 def count_occurances(time_lst):
     """"Counts the time and outputs the number of occurances
-    returns a list"""
+
+    Args:
+        time_list - a list of strings
+
+    Return:
+        a list
+    """
     goofy = []
     for num in time_lst:    
         goofy.append((num, time_lst.count(num)))
@@ -64,7 +88,8 @@ def main():
         print(temp_lst[idx][0], temp_lst[idx][1])
 
 
-assert count_occurances(['04', '02', '02', '12', '04']) == [('04', 2), ('02', 2), ('12', 1)]
+assert count_occurances(['04', '02', '02', '12', '04']) == [('04', 2),
+                        ('02', 2), ('12', 1)]
 assert check_for_from(['From', 'hi', 'there', 1, 2, 3, 4]) == True
 assert hour_num('09:14:16') == '09'
 main()
