@@ -48,7 +48,7 @@ def main():
     """
     Interaction if run from the command line.
     Magic for now; we'll look at what's going on here
-    in the next week or two. 
+    soon. 
     """
     parser = argparse.ArgumentParser(description="Solve a jumble (anagram)")
     parser.add_argument("jumble", type=str, help="Jumbled word (anagram)")
