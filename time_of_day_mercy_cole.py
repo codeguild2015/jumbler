@@ -1,8 +1,8 @@
-""" Written by Mercy and Cole 
-Reads a file and pulls out time of commits
-Counts them and returns number of commits
-per hour and returns the hour and count for each
-"""
+# Title: time_of_day.py
+# Authors: Mercy and Cole 
+# Reads a file and pulls out time of commits
+# Counts them and returns number of commits
+# per hour and returns the hour and count for each
 
 
 def split_line(line):
@@ -20,7 +20,7 @@ def check_for_from(lst):
     """ Isolate lists which start with From (but not From:)
     Return True or False
     """
-    if lst[0] == "From":
+    if lst[0] == "From" and len(lst) == 7:
         return True
     else:
         return False
@@ -53,9 +53,10 @@ def main():
     file = open(filename, 'r')
     time_lst = []
     for elem in file:
-        temp_lst = split_line(elem)
+        temp_line = elem.replace('  ', ' ')
+        temp_lst = split_line(temp_line)
         if check_for_from(temp_lst):
-            hr = hour_num(temp_lst[6])
+            hr = hour_num(temp_lst[5])
             time_lst.append(hr)
     temp_lst = count_occurances(time_lst)
     temp_lst.sort()
@@ -64,6 +65,6 @@ def main():
 
 
 assert count_occurances(['04', '02', '02', '12', '04']) == [('04', 2), ('02', 2), ('12', 1)]
-assert check_for_from(['From', 'hi', 'there']) == True
+assert check_for_from(['From', 'hi', 'there', 1, 2, 3, 4]) == True
 assert hour_num('09:14:16') == '09'
 main()

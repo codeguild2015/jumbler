@@ -1,8 +1,7 @@
-""" Written by Mercy and Cole 
-Get the names and the number of they appear from user file
-Input: User Defined
-Output: A list of tuples sorted by count (in reverse order)
-"""
+# Written by Mercy and Cole 
+# Get the names and the number of they appear from user file
+# Input: User Defined
+# Output: A list of tuples sorted by count (in reverse order)
 
 
 def split_line(line):
@@ -17,9 +16,10 @@ def split_line(line):
 
 def check_for_from(lst):
     """ Isolate lists which start with From (but not From:)
+    and of a specific length
     Return True or False
     """
-    if lst[0] == 'From':
+    if lst[0] == 'From' and len(lst) == 7:
         return True
     else:
         return False
@@ -45,7 +45,8 @@ def main():
     filename = open(f, 'r')
     name_lst = []
     for line in filename:
-        temp_lst = split_line(line)
+        temp_line = line.replace('  ', ' ') # Account for extra spaces.
+        temp_lst = split_line(temp_line)
         if check_for_from(temp_lst):
             name_lst.append(temp_lst[1])
     count_list = count_occurances(name_lst)
@@ -58,8 +59,8 @@ if __name__ == '__main__':
     assert split_line('Are you working?') == ['Are', 'you', 'working?']
     assert split_line(None) == None 
     assert split_line('') == ['']
-    assert check_for_from(['From', 'hi@gmail', 'aldkfjasdf']) == True
-    assert check_for_from(['From:', 'jimmy@hotmail', 'a;lksdjf']) == False
+    assert check_for_from(['From', 'hi', 'a', 1, 2, 3, 4]) == True
+    assert check_for_from(['From:', 'j', 1, 2, 3, 'a', 3]) == False
     assert count_occurances(['jim', 'ann', 'ann']) == [(1, 'jim'), (2, 'ann')]
     main()
 
