@@ -26,8 +26,7 @@ def break_string(str1):
     returns list of strings, broken by like
     """
     i, j = 1, 0
-    letter_strs = []
-    letter_strs.append(str1[0])
+    letter_strs = [str1[0]]
     while i < len(str1):
         if str1[i] == str1[i-1]:
             letter_strs[j] += str1[i]
@@ -46,7 +45,7 @@ def full_compress(str1):
     answer_lst = [compress_string(i) for i in lst]
     answer = "".join(answer_lst)
     print(answer)
-    return(answer)
+    return answer
 
 if __name__ == '__main__':
     assert compress_string('AAA') == 'A3'

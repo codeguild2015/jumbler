@@ -10,8 +10,7 @@ def split_line(line):
     Return a list of words, split on the spaces
      """
     try:
-        words = line.split(' ')
-        return words
+        return line.split(' ')
     except:
         return None
 
@@ -20,7 +19,7 @@ def check_for_from(lst):
     """ Isolate lists which start with From (but not From:)
     Return True or False
     """
-    if 'From' in lst:
+    if lst[0] == 'From':
         return True
     else:
         return False
@@ -31,9 +30,7 @@ def count_occurances(lst):
     Return counts per name
     List of tuples (count, name)
     """
-    goofy = []
-    for emails in lst:  
-        goofy.append((lst.count(emails), emails))
+    goofy = [(lst.count(emails), emails) for emails in lst]
     compressed = []
     for elem in goofy:
         if elem in compressed:
@@ -43,25 +40,18 @@ def count_occurances(lst):
     return compressed
 
 
-def sort_list(lst):
-    """ Get a list tuples
-    Return the list reverse order of names & number
-    """
-    lst.sort(reverse = True)
-    return lst 
-
-
 def main():
-    filename = input("input filename ")
+    f = input("input filename ")
+    filename = open(f, 'r')
     name_lst = []
-    for line in file:
+    for line in filename:
         temp_lst = split_line(line)
         if check_for_from(temp_lst):
             name_lst.append(temp_lst[1])
     count_list = count_occurances(name_lst)
-    lst_srtd = sort_list(count_list)
-    for idx, elem in enumerate(lst_srtd):
-        print(lst_srtd[idx][0], lst_srtd[idx][1])
+    count_list.sort(reverse=True)
+    [print(count_list[idx][0], count_list[idx][1]) for idx, elem in
+     enumerate(count_list)]
 
 
 if __name__ == '__main__':
@@ -70,7 +60,6 @@ if __name__ == '__main__':
     assert split_line('') == ['']
     assert check_for_from(['From', 'hi@gmail', 'aldkfjasdf']) == True
     assert check_for_from(['From:', 'jimmy@hotmail', 'a;lksdjf']) == False
-    assert count_occurances(['jim', 'jim', 'anne', 'anne', 'anne']) == 
-                            [(2, 'jim'), (3, 'anne')]
-    assert sort_list([(2, 'jim'), (3, 'anne')]) == [(3, 'anne'), (2, 'jim')]
+    assert count_occurances(['jim', 'ann', 'ann']) == [(1, 'jim'), (2, 'ann')]
     main()
+
